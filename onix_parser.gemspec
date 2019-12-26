@@ -33,5 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "memory_profiler"
 
   spec.add_runtime_dependency "ox"
-  spec.add_runtime_dependency "dry-struct"
+  spec.add_runtime_dependency "shallow_attributes"
+
 end

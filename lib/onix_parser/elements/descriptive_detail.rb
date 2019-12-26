@@ -33,7 +33,8 @@ module OnixParser
       attribute :extent, Types::Collection, of: Extent
       attribute :subject, Types::Collection, of: Subject
       attribute :audience_code, String
-      attribute :audience, Types::Collection, of: Elements::Audience
+      attribute :audience, Types::Collection, of: Audience
+      attribute :audience_range, Types::Collection, of: AudienceRange
     end
   end
 end

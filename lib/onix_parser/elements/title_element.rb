@@ -9,6 +9,7 @@ module OnixParser
       attribute :no_prefix, String
       attribute :title_without_prefix, String
       attribute :subtitle, String
+      attribute :part_number, String
     end
   end
 end

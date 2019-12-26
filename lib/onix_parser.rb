@@ -12,12 +12,11 @@ require_relative "onix_parser/elements/name_identifier"
 require_relative "onix_parser/elements/alternative_name"
 require_relative "onix_parser/elements/product_form_feature"
 require_relative "onix_parser/elements/audience"
+require_relative "onix_parser/elements/audience_range"
 require_relative "onix_parser/elements/barcode"
 require_relative "onix_parser/elements/collection_identifier"
 require_relative "onix_parser/elements/collection_sequence"
-require_relative "onix_parser/elements/collection"
 require_relative "onix_parser/elements/contributor_date"
-require_relative "onix_parser/elements/contributor"
 require_relative "onix_parser/elements/epub_license_expression"
 require_relative "onix_parser/elements/epub_usage_limit"
 require_relative "onix_parser/elements/epub_usage_constraint"
@@ -33,6 +32,8 @@ require_relative "onix_parser/elements/product_identifier"
 require_relative "onix_parser/elements/subject"
 require_relative "onix_parser/elements/title_element"
 require_relative "onix_parser/elements/title_detail"
+require_relative "onix_parser/elements/contributor"
+require_relative "onix_parser/elements/collection"
 require_relative "onix_parser/elements/header"
 require_relative "onix_parser/elements/descriptive_detail"
 require_relative "onix_parser/elements/product"
@@ -46,10 +47,18 @@ module OnixParser
     data = File.read("onix.xml")
     hash = Ox.load(data, mode: :hash_no_attrs)
     normalized_hash = Utils::Normalizer.call(hash)
-    Elements::Product.new(normalized_hash[:onix_message][:product].first)
-    # normalized_hash[:onix_message][:product].map do |h|
-    #   Elements::Product.new(h)
-    # end
+    # Elements::Product.new(normalized_hash[:onix_message][:product].first)
+    normalized_hash[:onix_message][:product].map do |h|
+      begin
+      Elements::Product.new(h)
+      rescue => e
+        puts "==========error=========="
+        puts h
+        puts "==========error=========="
+        puts e
+        break
+      end
+    end
      # Elements::Header.new(normalized_hash[:onix_message][:header])
   end
 end

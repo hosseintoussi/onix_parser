@@ -1,3 +1,5 @@
+require_relative "name_identifier"
+
 module OnixParser
   module Elements
     class AlternativeName < Base

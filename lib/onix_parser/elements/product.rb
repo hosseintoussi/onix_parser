@@ -1,3 +1,9 @@
+require_relative "record_source_identifier"
+require_relative "product_identifier"
+require_relative "barcode"
+require_relative "descriptive_detail"
+require_relative "publishing_detail"
+
 module OnixParser
   module Elements
     class Product < Base
@@ -12,6 +18,7 @@ module OnixParser
       attribute :product_identifier, Types::Collection, of: ProductIdentifier
       attribute :barcode, Types::Collection, of: Barcode
       attribute :descriptive_detail, DescriptiveDetail
+      attribute :publishing_detail, PublishingDetail
 
       def notification_type
         "bloosh #{attributes[:notification_type]}"

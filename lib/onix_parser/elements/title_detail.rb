@@ -1,3 +1,5 @@
+require_relative "title_element"
+
 module OnixParser
   module Elements
     class TitleDetail < Base

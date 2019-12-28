@@ -1,3 +1,6 @@
+require_relative "collection_identifier"
+require_relative "collection_sequence"
+require_relative "title_detail"
 module OnixParser
   module Elements
     class Collection < Base

@@ -1,3 +1,8 @@
+require_relative "sender"
+require_relative "sender_identifier"
+require_relative "addressee"
+require_relative "addressee_identifier"
+
 module OnixParser
   module Elements
     class Header < Base

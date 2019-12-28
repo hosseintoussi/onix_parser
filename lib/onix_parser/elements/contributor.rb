@@ -1,3 +1,7 @@
+require_relative "name_identifier"
+require_relative "alternative_name"
+require_relative "contributor_date"
+
 module OnixParser
   module Elements
     class Contributor < Base

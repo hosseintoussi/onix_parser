@@ -1,3 +1,17 @@
+require_relative "product_form_feature"
+require_relative "epub_usage_constraint"
+require_relative "measure"
+require_relative "epub_license"
+require_relative "product_classification"
+require_relative "title_detail"
+require_relative "contributor"
+require_relative "collection"
+require_relative "extent"
+require_relative "language"
+require_relative "subject"
+require_relative "audience"
+require_relative "audience_range"
+
 module OnixParser
   module Elements
     class DescriptiveDetail < Base

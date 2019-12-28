@@ -402,6 +402,7 @@ module OnixParser
           x509: :EpubLicenseExpressionTypeName,
           x510: :EpubLicenseExpressionLink,
           x555: :ProductClassificationTypeName,
+          x512: :CopyrightType,
 
 
       }.freeze

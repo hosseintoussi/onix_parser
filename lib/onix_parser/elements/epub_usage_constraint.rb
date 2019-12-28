@@ -1,3 +1,5 @@
+require_relative "epub_usage_limit"
+
 module OnixParser
   module Elements
     class EpubUsageConstraint < Base

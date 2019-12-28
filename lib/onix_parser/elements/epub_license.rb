@@ -1,3 +1,5 @@
+require_relative "epub_license_expression"
+
 module OnixParser
   module Elements
     class EpubLicense < Base

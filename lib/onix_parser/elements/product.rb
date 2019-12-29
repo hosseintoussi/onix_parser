@@ -1,5 +1,6 @@
 require_relative "record_source_identifier"
 require_relative "product_identifier"
+require_relative "identifier"
 require_relative "barcode"
 require_relative "descriptive_detail"
 require_relative "publishing_detail"
@@ -15,8 +16,10 @@ module OnixParser
       attribute :record_source_name, String
       attribute :record_source_identifier,
         Types::Collection,
-        of:  RecordSourceIdentifier
-      attribute :product_identifier, Types::Collection, of: ProductIdentifier
+        of: RecordSourceIdentifier
+      attribute :product_identifier,
+        Types::Collection,
+        of: Identifier.for("product")
       attribute :barcode, Types::Collection, of: Barcode
       attribute :descriptive_detail, DescriptiveDetail
       attribute :publishing_detail, PublishingDetail

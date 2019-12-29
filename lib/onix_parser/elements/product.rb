@@ -3,6 +3,7 @@ require_relative "product_identifier"
 require_relative "barcode"
 require_relative "descriptive_detail"
 require_relative "publishing_detail"
+require_relative "product_supply"
 
 module OnixParser
   module Elements
@@ -19,6 +20,7 @@ module OnixParser
       attribute :barcode, Types::Collection, of: Barcode
       attribute :descriptive_detail, DescriptiveDetail
       attribute :publishing_detail, PublishingDetail
+      attribute :product_supply, Types::Collection, of: ProductSupply
 
       def notification_type
         "bloosh #{attributes[:notification_type]}"

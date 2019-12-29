@@ -8,6 +8,10 @@ module OnixParser
       attribute :publisher_identifier, Types::Collection, of: PublisherIdentifier
       attribute :publisher_name, String
       attribute :website, Types::Collection, of: Website
+
+      def publisher_name
+        "bla bla bla #{attributes[:publisher_name]}"
+      end
     end
   end
 end

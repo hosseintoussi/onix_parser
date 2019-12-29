@@ -14,13 +14,14 @@ module OnixParser
   class Error < StandardError; end
 
   def self.parse
+    start = Time.now
     data = File.read("onix.xml")
     hash = Ox.load(data, mode: :hash_no_attrs)
     normalized_hash = Utils::Normalizer.call(hash)
     # Elements::Product.new(normalized_hash[:onix_message][:product].first)
     normalized_hash[:onix_message][:product].map do |h|
       begin
-      Elements::Product.new(h)
+        Elements::Product.new(h)
       rescue => e
         puts "==========error=========="
         puts h
@@ -29,6 +30,7 @@ module OnixParser
         break
       end
     end
-     # Elements::Header.new(normalized_hash[:onix_message][:header])
+    puts Time.now - start
   end
+  # Elements::Header.new(normalized_hash[:onix_message][:header])
 end

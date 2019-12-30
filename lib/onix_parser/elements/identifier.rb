@@ -3,7 +3,7 @@ module OnixParser
     class Identifier < Base
       ID_TYPE_POSTFIX = "_id_type".freeze
 
-      def self.for(name)
+      def self.attributes_for(name)
         attribute name.concat(ID_TYPE_POSTFIX).to_sym, String
         attribute :id_type_name, String
         attribute :id_value, String

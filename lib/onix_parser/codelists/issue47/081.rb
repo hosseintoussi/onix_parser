@@ -1,0 +1,50 @@
+module OnixParser
+  module Codelists
+    module Issue47
+      LIST_81 = {
+        "10" => "Text (eye-readable)",
+        "15" => "Extensive links between internal content",
+        "14" => "Extensive links to external content",
+        "16" => "Additional eye-readable text not part of main work",
+        "41" => "Additional eye-readable links to external content",
+        "17" => "Promotional text for other book product",
+        "11" => "Musical notation",
+        "07" => "Still images / graphics",
+        "18" => "Photographs",
+        "19" => "Figures, diagrams, charts, graphs",
+        "20" => "Additional images / graphics not part of main work",
+        "12" => "Maps and/or other cartographic content",
+        "42" => "Assessment material",
+        "01" => "Audiobook",
+        "02" => "Performance – spoken word",
+        "13" => "Other speech content",
+        "03" => "Music recording",
+        "04" => "Other audio",
+        "21" => "Partial performance – spoken word",
+        "22" => "Additional audio content not part of main work",
+        "23" => "Promotional audio for other book product",
+        "06" => "Video",
+        "26" => "Video recording of a reading",
+        "27" => "Performance – visual",
+        "24" => "Animated / interactive illustrations",
+        "25" => "Narrative animation",
+        "28" => "Other video",
+        "29" => "Partial performance – video",
+        "30" => "Additional video content not part of main work",
+        "31" => "Promotional video for other book product",
+        "05" => "Game / Puzzle",
+        "32" => "Contest",
+        "08" => "Software",
+        "09" => "Data",
+        "33" => "Data set plus software",
+        "34" => "Blank pages or spaces",
+        "35" => "Advertising content",
+        "37" => "Advertising – first party",
+        "36" => "Advertising – coupons",
+        "38" => "Advertising – third party display",
+        "39" => "Advertising – third party textual",
+        "40" => "Scripting"
+      }
+    end
+  end
+end

@@ -1,5 +1,5 @@
 require_relative "website"
-require_relative "identifier"
+require_relative "publisher_identifier"
 
 module OnixParser
   module Elements
@@ -7,7 +7,7 @@ module OnixParser
       attribute :publishing_role, String
       attribute :publisher_identifier,
         Types::Collection,
-        of: Identifier.for("publisher")
+        of: PublisherIdentifier
       attribute :publisher_name, String
       attribute :website, Types::Collection, of: Website
 

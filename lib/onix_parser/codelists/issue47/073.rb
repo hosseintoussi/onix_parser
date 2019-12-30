@@ -1,0 +1,51 @@
+module OnixParser
+  module Codelists
+    module Issue47
+      LIST_73 = {
+        "00" => "Unspecified, see website description",
+        "01" => "Publisher’s corporate website",
+        "02" => "Publisher’s website for a specified work",
+        "03" => "Online hosting service home page",
+        "04" => "Journal home page",
+        "05" => "Online resource ‘available content’ page",
+        "06" => "Contributor’s own website",
+        "07" => "Publisher’s website relating to specified contributor",
+        "08" => "Other publisher’s website relating to specified contributor",
+        "09" => "Third-party website relating to specified contributor",
+        "10" => "Contributor’s own website for specified work",
+        "11" => "Other publisher’s website relating to specified work",
+        "12" => "Third-party website relating to specified work",
+        "13" => "Contributor’s own website for group or series of works",
+        "14" => "Publisher’s website relating to group or series of works",
+        "15" => "Other publisher’s website relating to group or series of works",
+        "16" => "Third-party website relating to group or series of works (eg a fan site)",
+        "17" => "Publisher’s B2B website",
+        "18" => "Publisher’s B2C website",
+        "23" => "Author blog",
+        "24" => "Web page for author presentation / commentary",
+        "25" => "Web page for author interview",
+        "26" => "Web page for author reading",
+        "27" => "Web page for cover material",
+        "28" => "Web page for sample content",
+        "29" => "Web page for full content",
+        "30" => "Web page for other commentary / discussion",
+        "31" => "Transfer-URL",
+        "32" => "DOI Website Link",
+        "33" => "Supplier’s corporate website",
+        "34" => "Supplier’s B2B website",
+        "35" => "Supplier’s B2C website",
+        "36" => "Supplier’s website for a specified work",
+        "37" => "Supplier’s B2B website for a specified work",
+        "38" => "Supplier’s B2C website for a specified work",
+        "39" => "Supplier’s website for a group or series of works",
+        "40" => "URL of full metadata description",
+        "41" => "Social networking URL for specific work or product",
+        "42" => "Author’s social networking URL",
+        "43" => "Publisher’s social networking URL",
+        "44" => "Social networking URL for specific article, chapter or content item",
+        "45" => "Publisher’s or third party website for permissions requests",
+        "46" => "Publisher’s or third party website for privacy statement"
+      }
+    end
+  end
+end

@@ -9,6 +9,7 @@ require_relative "onix_parser/elements/header"
 require_relative "onix_parser/elements/product"
 require_relative "onix_parser/utils/tags"
 require_relative "onix_parser/utils/normalizer"
+require_relative "onix_parser/utils/codelists_extractor"
 
 module OnixParser
   class Error < StandardError; end

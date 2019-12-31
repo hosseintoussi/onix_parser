@@ -6,10 +6,10 @@ module OnixParser
       attribute :supplier_identifier,
         Types::Collection,
         of: SupplierIdentifier
-      attribute :supplier_name, String
-      attribute :telephone_number, Types::Collection, of: String
-      attribute :fax_number, Types::Collection, of: String
-      attribute :email_address, Types::Collection, of: String
+      attribute :supplier_name, Types::String
+      attribute :telephone_number, Types::Collection, of: Types::String
+      attribute :fax_number, Types::Collection, of: Types::String
+      attribute :email_address, Types::Collection, of: Types::String
     end
   end
 end

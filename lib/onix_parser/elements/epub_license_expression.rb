@@ -1,9 +1,9 @@
 module OnixParser
   module Elements
     class EpubLicenseExpression < Base
-      attribute :epub_license_expression_type, String
-      attribute :epub_license_expression_type_name, String
-      attribute :epub_license_expression_link, String
+      attribute :epub_license_expression_type, Types::String
+      attribute :epub_license_expression_type_name, Types::String
+      attribute :epub_license_expression_link, Types::String
     end
   end
 end

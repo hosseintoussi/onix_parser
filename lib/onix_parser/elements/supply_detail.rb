@@ -10,13 +10,13 @@ module OnixParser
   module Elements
     class SupplyDetail < Base
       attribute :supplier, Supplier
-      attribute :product_availability, String
+      attribute :product_availability, Types::String
       attribute :supply_contact, Types::Collection, of: SupplyContact
       attribute :supplier_own_coding, Types::Collection, of: SupplierOwnCoding
       attribute :returns_conditions, Types::Collection, of: ReturnsConditions
-      attribute :product_availability, String
+      attribute :product_availability, Types::String
       attribute :supply_date, Types::Collection, of: SupplyDate
-      attribute :order_time, String
+      attribute :order_time, Types::String
       attribute :new_supplier, NewSupplier
       attribute :price, Types::Collection, of: Price
     end

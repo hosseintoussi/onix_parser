@@ -1,9 +1,9 @@
 module OnixParser
   module Elements
     class Website < Base
-      attribute :website_role, String
-      attribute :website_description, String
-      attribute :website_link, String
+      attribute :website_role, Types::String
+      attribute :website_description, Types::String
+      attribute :website_link, Types::String
     end
   end
 end

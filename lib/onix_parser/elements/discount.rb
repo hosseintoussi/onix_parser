@@ -1,11 +1,11 @@
 module OnixParser
   module Elements
     class Discount < Base
-      attribute :discount_type, String
-      attribute :quantity, String
-      attribute :to_quantity, String
-      attribute :discount_percent, String
-      attribute :discount_amount, String
+      attribute :discount_type, Types::String
+      attribute :quantity, Types::String
+      attribute :to_quantity, Types::String
+      attribute :discount_percent, Types::String
+      attribute :discount_amount, Types::String
     end
   end
 end

@@ -1,15 +1,15 @@
 module OnixParser
   module Elements
     class TitleElement < Base
-      attribute :sequence_number, String
-      attribute :title_element_level, String
-      attribute :year_of_annual, String
-      attribute :title_text, String
-      attribute :title_prefix, String
-      attribute :no_prefix, String
-      attribute :title_without_prefix, String
-      attribute :subtitle, String
-      attribute :part_number, String
+      attribute :sequence_number, Types::String
+      attribute :title_element_level, Types::String
+      attribute :year_of_annual, Types::String
+      attribute :title_text, Types::String
+      attribute :title_prefix, Types::String
+      attribute :no_prefix, Types::String
+      attribute :title_without_prefix, Types::String
+      attribute :subtitle, Types::String
+      attribute :part_number, Types::String
     end
   end
 end

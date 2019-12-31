@@ -1,9 +1,9 @@
 module OnixParser
   module Elements
     class Addressee < Base
-      attribute :addressee_name, String
-      attribute :contact_name, String
-      attribute :email_address, String
+      attribute :addressee_name, Types::String
+      attribute :contact_name, Types::String
+      attribute :email_address, Types::String
     end
   end
 end

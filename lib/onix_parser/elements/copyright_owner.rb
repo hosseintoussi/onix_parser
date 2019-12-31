@@ -6,8 +6,8 @@ module OnixParser
       attribute :CopyrightOwnerIdentifier,
         Types::Collection,
         of: CopyrightOwnerIdentifier
-      attribute :person_name, String
-      attribute :corporate_name, String
+      attribute :person_name, Types::String
+      attribute :corporate_name, Types::String
     end
   end
 end

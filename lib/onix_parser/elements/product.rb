@@ -9,11 +9,12 @@ require_relative "code"
 module OnixParser
   module Elements
     class Product < Base
-      attribute :record_reference, String
+      attribute :record_reference,  Types::String
       attribute :notification_type, Code, list: "1"
-      attribute :deletion_text, String
-      attribute :record_source_type, String
-      attribute :record_source_name, String
+      attribute :product_supply, Types::Collection, of: ProductSupply
+      attribute :deletion_text,  Types::String
+      attribute :record_source_type,  Types::String
+      attribute :record_source_name,  Types::String
       attribute :record_source_identifier,
         Types::Collection,
         of: RecordSourceIdentifier
@@ -23,7 +24,6 @@ module OnixParser
       attribute :barcode, Types::Collection, of: Barcode
       attribute :descriptive_detail, DescriptiveDetail
       attribute :publishing_detail, PublishingDetail
-      attribute :product_supply, Types::Collection, of: ProductSupply
     end
   end
 end

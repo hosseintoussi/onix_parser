@@ -4,7 +4,7 @@ require_relative "product_identifier"
 module OnixParser
   module Elements
     class PriceCondition < Base
-      attribute :price_condition_type, String
+      attribute :price_condition_type, Types::String
       attribute :price_condition_quantity,
         Types::Collection,
         of: PriceConditionQuantity

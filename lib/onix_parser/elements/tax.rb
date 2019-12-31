@@ -4,12 +4,12 @@ module OnixParser
   module Elements
     class Tax < Base
       attribute :product_identifier, Types::Collection, of: ProductIdentifier
-      attribute :price_part_description, Types::Collection, of: String
-      attribute :tax_type, String
-      attribute :tax_rate_code, String
-      attribute :tax_rate_percent, String
-      attribute :taxable_amount, String
-      attribute :tax_amount, String
+      attribute :price_part_description, Types::Collection, of: Types::String
+      attribute :tax_type, Types::String
+      attribute :tax_rate_code, Types::String
+      attribute :tax_rate_percent, Types::String
+      attribute :taxable_amount, Types::String
+      attribute :tax_amount, Types::String
     end
   end
 end

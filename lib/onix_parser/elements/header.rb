@@ -10,13 +10,13 @@ module OnixParser
       attribute :sender_identifier, SenderIdentifier
       attribute :addressee, Addressee
       attribute :addressee_identifier, AddresseeIdentifier
-      attribute :message_number, String
-      attribute :message_repeat, String
-      attribute :sent_date_time, String
-      attribute :message_note, String
-      attribute :language_of_text, String
-      attribute :default_price_type, String
-      attribute :default_currency_code, String
+      attribute :message_number, Types::String
+      attribute :message_repeat, Types::String
+      attribute :sent_date_time, Types::String
+      attribute :message_note, Types::String
+      attribute :language_of_text, Types::String
+      attribute :default_price_type, Types::String
+      attribute :default_currency_code, Types::String
     end
   end
 end

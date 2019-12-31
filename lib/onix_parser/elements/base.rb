@@ -1,9 +1,9 @@
-require_relative "types/collection"
+require "onix_parser/attributes"
 
 module OnixParser
   module Elements
     class Base
-      include ShallowAttributes
+      include Attributes
     end
   end
 end

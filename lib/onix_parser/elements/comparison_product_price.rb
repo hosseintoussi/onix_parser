@@ -4,9 +4,9 @@ module OnixParser
   module Elements
     class ComparisonProductPrice < Base
       attribute :product_identifier, Types::Collection, of: ProductIdentifier
-      attribute :price_type, String
-      attribute :price_amount, String
-      attribute :currency_code, String
+      attribute :price_type, Types::String
+      attribute :price_amount, Types::String
+      attribute :currency_code, Types::String
     end
   end
 end

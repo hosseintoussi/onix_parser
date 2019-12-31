@@ -1,9 +1,9 @@
 module OnixParser
   module Elements
     class Barcode < Base
-      attribute :barcode_type, String
-      attribute :position_on_product, String
-      attribute :extent_unit, String
+      attribute :barcode_type,  Types::String
+      attribute :position_on_product,  Types::String
+      attribute :extent_unit,  Types::String
     end
   end
 end

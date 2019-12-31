@@ -9,7 +9,7 @@ module OnixParser
       # a single instance is required.
       attribute :market, Market
       attribute :market_publishing_detail, MarketPublishingDetail
-      attribute :supply_detail, Types::Collection, of: SupplyDetail
+      attribute :supply_detail, Types::Collection, of: SupplyDetail, here: "1"
     end
   end
 end

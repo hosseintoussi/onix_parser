@@ -3,7 +3,6 @@ PATH
   specs:
     onix_parser (0.1.0)
       ox
-      shallow_attributes
 
 GEM
   remote: https://rubygems.org/
@@ -30,7 +29,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.0)
-    shallow_attributes (0.9.5)
 
 PLATFORMS
   ruby

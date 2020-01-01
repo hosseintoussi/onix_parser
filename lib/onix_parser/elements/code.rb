@@ -3,6 +3,7 @@ module OnixParser
     class Code < Base
       CODELISTS_PATH = -"onix_parser/codelists/issue47"
       CODELISTS_CONST = -"OnixParser::Codelists::Issue47::LIST_"
+      ZERO = -"0"
 
       attribute :list,  Types::String
       attribute :value,  Types::String
@@ -22,7 +23,7 @@ module OnixParser
 
       def list_hash
         @list_hash ||=
-          require File.join(CODELISTS_PATH, self.list.rjust(3, "0"))
+        require File.join(CODELISTS_PATH, self.list.rjust(3, ZERO))
         Object.const_get(CODELISTS_CONST + self.list)
       end
     end

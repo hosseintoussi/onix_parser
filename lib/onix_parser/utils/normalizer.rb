@@ -1,3 +1,5 @@
+require_relative "tags"
+
 module OnixParser
   module Utils
     class Normalizer

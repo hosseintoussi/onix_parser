@@ -17,7 +17,7 @@ module OnixParser
         private
 
         def type_instance(klass)
-          DEFAULT_TYPE_OBJECTS[klass] || Types.const_get(klass.name).new
+          DEFAULT_TYPE_OBJECTS[klass] || klass.new
         end
       end
     end

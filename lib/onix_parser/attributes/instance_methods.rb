@@ -1,31 +1,15 @@
 module OnixParser
   module Attributes
     module InstanceMethods
+      attr_reader :attributes
+
       def initialize(attrs = {})
         @attributes = {}
-        attrs.each_pair do |key, value|
-          key = key.to_sym
-          @attributes[key] = value if default_values.key?(key)
-        end
-        define_attributes
+        define_attributes(attrs)
       end
 
-      TO_H_PROC = ->(value) { value.respond_to?(:to_hash) ? value.to_hash : value }
-
-      def attributes
-        hash = {}
-        @attributes.map do |key, value|
-          hash[key] =
-            value.is_a?(Array) ? value.map(&TO_H_PROC) : TO_H_PROC.call(value)
-        end
-        hash
-      end
-
-      def attributes=(attributes)
-        attributes.each_pair do |key, value|
-          @attributes[key.to_sym] = value
-        end
-        define_attributes
+      def attributes=(attrs)
+        define_attributes(attrs)
       end
 
       def coerce(value, _options = {})
@@ -33,18 +17,22 @@ module OnixParser
         self
       end
 
-      def inspect
-        "#<#{self.class}#{attributes.map{ |k, v| " #{k}=#{v.inspect}" }.join}>"
-      end
-
-      def define_attributes
-        @attributes.each do |key, value|
-          send("#{key}=", value)
+      def define_attributes(attrs = {})
+        attrs.each_pair do |key, value|
+          key = key.to_sym
+          if default_values.key?(key)
+            @attributes[key] = value
+            public_send(setter_methods[key], value)
+          end
         end
       end
 
       def default_values
         @default_values ||= self.class.default_values
+      end
+
+      def setter_methods
+        @setter_methods ||= self.class.setter_methods
       end
     end
   end

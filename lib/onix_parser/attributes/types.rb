@@ -17,7 +17,7 @@ module OnixParser
         private
 
         def type_instance(klass)
-          DEFAULT_TYPE_OBJECTS[klass] || klass.new
+          DEFAULT_TYPE_OBJECTS.fetch(klass, klass.new)
         end
       end
     end

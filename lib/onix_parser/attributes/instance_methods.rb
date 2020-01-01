@@ -17,6 +17,8 @@ module OnixParser
         self
       end
 
+      private
+
       def define_attributes(attrs = {})
         attrs.each_pair do |key, value|
           key = key.to_sym

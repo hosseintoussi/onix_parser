@@ -1,43 +1,40 @@
 module OnixParser
   module Attributes
     module ClassMethods
-      def default_values
-        @default_values ||= {}
+      def defined_attributes
+        @defined_attributes ||= {}
       end
 
       def setter_methods
         @setter_methods ||= {}
       end
 
-      def attributes
-        default_values.keys
+      def instance_methods
+        @instance_methods ||= {}
       end
 
       def attribute(name, type, options = {})
         options[:default] ||= [] if type == Types::Collection
 
-        default_values[name] = options.delete(:default)
+        defined_attributes[name] = options.delete(:default)
+        instance_methods[name] = "@#{name}"
 
-        initialize_setter(name, type, options)
-        initialize_getter(name)
+        attr_setter(name, type, options)
+        attr_getter(name)
       end
 
-      def initialize_getter(name)
+      def attr_getter(name)
         attr_reader(name)
       end
 
-      def initialize_setter(name, type, options)
+      def attr_setter(name, type, options)
         setter_methods[name] = "#{name}="
-        module_eval <<-EOS, __FILE__, __LINE__ + 1
-        def #{name}=(value)
-          @#{name} = if value.is_a?(#{type}) && !value.is_a?(Array)
-            value
-          else
-            #{"Types.coerce(#{type}, value, #{options})"}
-          end
-          @attributes[:#{name}] = @#{name}
+        define_method(setter_methods[name]) do |value|
+          coerced_value =
+            instance_variable_set(instance_methods[name],
+              Types.coerce(type, value, options))
+          @attributes[name] = coerced_value
         end
-        EOS
       end
     end
   end

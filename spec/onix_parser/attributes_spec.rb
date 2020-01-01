@@ -37,7 +37,7 @@ RSpec.describe OnixParser::Attributes do
     it "ignores the undefined attributes" do
       user = User.new(name: "test", undefined: "undefined")
 
-      expect(user.attributes).to eq({ name: "test" })
+      expect(user.attributes).to eq({ name: "test", numbers: [] })
     end
   end
 
@@ -61,7 +61,21 @@ RSpec.describe OnixParser::Attributes do
       hash = { name: "test", undefined: "undefined" }
       user = User.new(hash)
 
-      expect(user.attributes).to eq({ name: "test"})
+      expect(user.attributes).to eq({ name: "test", numbers: [] })
+    end
+  end
+
+  describe "default values for attributes" do
+    class Tester
+      include OnixParser::Attributes
+
+      attribute :bloosh, OnixParser::Attributes::Types::String, default: "tester"
+    end
+
+    it "initializes the attribute with the default value" do
+      tester = Tester.new
+
+      expect(tester.bloosh).to eq("tester")
     end
   end
 

@@ -1,5 +1,5 @@
 RSpec.describe OnixParser::Utils::Normalizer do
-  describe "#call" do
+  describe ".call" do
     context "when the hash keys are present in tags" do
       it "normalizes the hash and snake cases the key" do
         hash = { ONIXMessage: { product: { NotificationType: {} } } }

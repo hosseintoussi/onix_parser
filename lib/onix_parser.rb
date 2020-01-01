@@ -18,18 +18,18 @@ module OnixParser
       data = File.read("onix.xml")
       hash = Ox.load(data, mode: :hash_no_attrs)
       normalized_hash = Utils::Normalizer.call(hash)
-      # Elements::Product.new(normalized_hash[:onix_message][:product].first)
-      normalized_hash[:onix_message][:product].map do |h|
-        begin
-          Elements::Product.new(h)
-        rescue => e
-          puts "==========error=========="
-          puts h
-          puts "==========error=========="
-          puts e
-          break
-        end
-      end
+      Elements::Product.new(normalized_hash[:onix_message][:product].first)
+      # normalized_hash[:onix_message][:product].map do |h|
+      #   begin
+      #     Elements::Product.new(h)
+      #   rescue => e
+      #     puts "==========error=========="
+      #     puts h
+      #     puts "==========error=========="
+      #     puts e
+      #     break
+      #   end
+      # end
     # end
     # printer = RubyProf::GraphPrinter.new(result)
     # printer.print(STDOUT, {})

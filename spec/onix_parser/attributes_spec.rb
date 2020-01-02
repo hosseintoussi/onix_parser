@@ -15,6 +15,12 @@ RSpec.describe OnixParser::Attributes do
     attribute :user, User
   end
 
+  class WithDefault
+    include OnixParser::Attributes
+
+    attribute :name, OnixParser::Attributes::Types::String, default: "default"
+  end
+
   describe "initializing an object" do
     it "adds setters and getters of the attributes" do
       user = User.new
@@ -66,16 +72,10 @@ RSpec.describe OnixParser::Attributes do
   end
 
   describe "default values for attributes" do
-    class Tester
-      include OnixParser::Attributes
-
-      attribute :bloosh, OnixParser::Attributes::Types::String, default: "tester"
-    end
-
     it "initializes the attribute with the default value" do
-      tester = Tester.new
+      default = WithDefault.new
 
-      expect(tester.bloosh).to eq("tester")
+      expect(default.name).to eq("default")
     end
   end
 
@@ -85,6 +85,14 @@ RSpec.describe OnixParser::Attributes do
 
       expect(app.name).to eq("test")
       expect(app.user.name).to eq("tester")
+    end
+  end
+
+  describe "#inspect" do
+    it "returns just the attributes" do
+      user = WithDefault.new
+
+      expect(user.inspect).to eq('#<WithDefault name="default">')
     end
   end
 end

@@ -18,6 +18,10 @@ module OnixParser
         self
       end
 
+      def inspect
+        "#<#{self.class}#{attributes.map{ |k, v| " #{k}=#{v.inspect}" }.join}>"
+      end
+
       private
 
       def define_attributes(attrs = {})

@@ -1,9 +1,9 @@
+require_relative "identifier"
+
 module OnixParser
   module Elements
-    class AddresseeIdentifier < Base
-      attribute :addressee_id_type, Types::String
-      attribute :id_type_name, Types::String
-      attribute :id_value, Types::String
+    class AddresseeIdentifier < Identifier
+      attributes_for("addressee", list: "44")
     end
   end
 end

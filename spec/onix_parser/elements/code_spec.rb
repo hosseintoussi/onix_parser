@@ -29,5 +29,13 @@ RSpec.describe OnixParser::Elements::Code do
         expect(coerced_code.humanize).to be_nil
       end
     end
+
+    context "when list is nil" do
+      it "nil on humanize" do
+        coerced_code = described_class.new.coerce("01", list: nil)
+
+        expect(coerced_code.humanize).to be_nil
+      end
+    end
   end
 end

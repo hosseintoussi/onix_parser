@@ -18,6 +18,8 @@ module OnixParser
       end
 
       def humanize
+        return nil if list.nil?
+
         list_hash[value]
       end
 

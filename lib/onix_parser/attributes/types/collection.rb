@@ -4,9 +4,10 @@ module OnixParser
       class Collection
         def coerce(values, options = {})
           collection = values.is_a?(::Array) ? values : [values]
+          klass = item_klass(options.delete(:of))
 
           collection.map! do |value|
-            Types.coerce(item_klass(options[:of]), value)
+            Types.coerce(klass, value, options)
           end
         end
 

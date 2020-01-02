@@ -1,9 +1,9 @@
+require_relative "identifier"
+
 module OnixParser
   module Elements
-    class AgentIdentifier < Base
-      attribute :agent_id_type, Types::String
-      attribute :id_type_name, Types::String
-      attribute :id_value, Types::String
+    class AgentIdentifier < Identifier
+      attributes_for "agent", list: "92"
     end
   end
 end

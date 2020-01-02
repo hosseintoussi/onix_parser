@@ -6,7 +6,6 @@ module OnixParser
     class Market < Base
       attribute :territory, Territory
       attribute :sales_restriction, Types::Collection, of: SalesRestriction
-      attribute :measure_unit_code, Types::String
     end
   end
 end

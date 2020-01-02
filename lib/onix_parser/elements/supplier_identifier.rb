@@ -1,9 +1,9 @@
+require_relative "identifier"
+
 module OnixParser
   module Elements
-    class SupplierIdentifier < Base
-      attribute :supplier_id_type, Types::String
-      attribute :id_type_name, Types::String
-      attribute :id_value, Types::String
+    class SupplierIdentifier < Identifier
+      attributes_for "supplier", list: "92"
     end
   end
 end

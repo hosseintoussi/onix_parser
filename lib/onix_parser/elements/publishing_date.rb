@@ -1,8 +1,10 @@
+require_relative "code"
+
 module OnixParser
   module Elements
     class PublishingDate < Base
-      attribute :publishing_date_role, Types::String
-      attribute :date_format, Types::String
+      attribute :publishing_date_role, Code, list: "163"
+      attribute :date_format, Code, list: "55"
       attribute :date, Types::String
     end
   end

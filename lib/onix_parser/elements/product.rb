@@ -12,9 +12,9 @@ module OnixParser
       attribute :record_reference,  Types::String
       attribute :notification_type, Code, list: "1"
       attribute :product_supply, Types::Collection, of: ProductSupply
-      attribute :deletion_text,  Types::String
-      attribute :record_source_type,  Types::String
-      attribute :record_source_name,  Types::String
+      attribute :deletion_text, Types::Collection, of: Types::String
+      attribute :record_source_type, Code, list: "3"
+      attribute :record_source_name, Types::String
       attribute :record_source_identifier,
         Types::Collection,
         of: RecordSourceIdentifier

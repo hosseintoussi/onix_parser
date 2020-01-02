@@ -30,9 +30,8 @@ module OnixParser
       def attr_setter(name, type, options)
         setter_methods[name] = "#{name}="
         define_method(setter_methods[name]) do |value|
-          coerced_value =
-            instance_variable_set(instance_methods[name],
-              Types.coerce(type, value, options))
+          coerced_value = Types.coerce(type, value, options.dup)
+          instance_variable_set(instance_methods[name], coerced_value)
           @attributes[name] = coerced_value
         end
       end

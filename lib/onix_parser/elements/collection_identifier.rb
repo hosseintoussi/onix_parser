@@ -1,8 +1,9 @@
+require_relative "identifier"
+
 module OnixParser
   module Elements
-    class CollectionIdentifier < Base
-      attribute :collection_id_type, Types::String
-      attribute :id_value, Types::String
+    class CollectionIdentifier < Identifier
+      attributes_for "collection", list: "13"
     end
   end
 end

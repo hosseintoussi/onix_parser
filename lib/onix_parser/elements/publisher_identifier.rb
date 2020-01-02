@@ -1,9 +1,9 @@
+require_relative "identifier"
+
 module OnixParser
   module Elements
-    class PublisherIdentifier < Base
-      attribute :publisher_id_type, Types::String
-      attribute :id_type_name, Types::String
-      attribute :id_value, Types::String
+    class PublisherIdentifier < Identifier
+      attributes_for "publisher", list: "44"
     end
   end
 end

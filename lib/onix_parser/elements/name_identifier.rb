@@ -1,9 +1,8 @@
+require_relative "identifier"
 module OnixParser
   module Elements
-    class NameIdentifier < Base
-      attribute :name_id_type, Types::String
-      attribute :id_type_name, Types::String
-      attribute :id_value, Types::String
+    class NameIdentifier < Identifier
+      attributes_for "name", list: "44"
     end
   end
 end

@@ -1,8 +1,10 @@
+require_relative "code"
+
 module OnixParser
   module Elements
     class TitleElement < Base
       attribute :sequence_number, Types::String
-      attribute :title_element_level, Types::String
+      attribute :title_element_level, Code, list: "149"
       attribute :year_of_annual, Types::String
       attribute :title_text, Types::String
       attribute :title_prefix, Types::String

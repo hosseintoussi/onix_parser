@@ -1,9 +1,10 @@
 require_relative "name_identifier"
+require_relative "code"
 
 module OnixParser
   module Elements
     class AlternativeName < Base
-      attribute :name_type, Types::String
+      attribute :name_type, Code, list: "18"
       attribute :name_identifier, NameIdentifier
       attribute :person_name, Types::String
       attribute :person_name_inverted, Types::String

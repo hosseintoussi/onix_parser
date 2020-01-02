@@ -3,7 +3,7 @@ RSpec.describe OnixParser::Attributes::Types::Collection do
     before do
       allow(OnixParser::Attributes::Types)
         .to receive(:coerce)
-        .with(OnixParser::Attributes::Types::String, "test")
+        .with(OnixParser::Attributes::Types::String, "test", {})
         .and_return("test")
     end
 

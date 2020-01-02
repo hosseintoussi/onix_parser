@@ -1,9 +1,9 @@
+require_relative "identifier"
+
 module OnixParser
   module Elements
-    class SalesOutletIdentifier < Base
-      attribute :sales_outlet_id_type, Types::String
-      attribute :id_type_name, Types::String
-      attribute :id_value, Types::String
+    class SalesOutletIdentifier < Identifier
+      attributes_for "sales_outlet", list: "102"
     end
   end
 end

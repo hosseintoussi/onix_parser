@@ -1,5 +1,6 @@
 require_relative "sender"
 require_relative "addressee"
+require_relative "code"
 
 module OnixParser
   module Elements

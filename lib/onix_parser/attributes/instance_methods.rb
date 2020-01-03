@@ -28,7 +28,7 @@ module OnixParser
         attrs.each_pair do |key, value|
           key = key.to_sym
           if defined_attributes.key?(key)
-            public_send(setter_methods[key], value)
+            public_send(setter_methods_lookup[key], value)
           end
         end
       end
@@ -37,7 +37,7 @@ module OnixParser
         defined_attributes.each_pair do |key, value|
           next unless @attributes[key].nil? && !value.nil?
 
-          public_send(setter_methods[key], value)
+          public_send(setter_methods_lookup[key], value)
         end
       end
 
@@ -45,12 +45,12 @@ module OnixParser
         @defined_attributes ||= self.class.defined_attributes
       end
 
-      def setter_methods
-        @setter_methods ||= self.class.setter_methods
+      def setter_methods_lookup
+        @setter_methods_lookup ||= self.class.setter_methods_lookup
       end
 
-      def instance_methods
-       @instance_methods ||= self.class.instance_methods
+      def getter_methods_lookup
+       @getter_methods_lookup ||= self.class.getter_methods_lookup
       end
     end
   end

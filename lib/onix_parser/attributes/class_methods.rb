@@ -5,20 +5,20 @@ module OnixParser
         @defined_attributes ||= {}
       end
 
-      def setter_methods
-        @setter_methods ||= {}
+      def setter_methods_lookup
+        @setter_methods_lookup ||= {}
       end
 
-      def instance_methods
-        @instance_methods ||= {}
+      def getter_methods_lookup
+        @getter_methods_lookup ||= {}
       end
 
       def attribute(name, type, options = {})
         options[:default] ||= [] if type == Types::Collection
         defined_attributes[name] = options.delete(:default)
 
-        instance_methods[name] = "@#{name}"
-        setter_methods[name] = "#{name}="
+        getter_methods_lookup[name] = "@#{name}"
+        setter_methods_lookup[name] = "#{name}="
 
         attr_setter(name)
         attr_getter(name, type, options)
@@ -26,17 +26,17 @@ module OnixParser
 
       def attr_getter(name, type, options)
         define_method(name) do
-          if instance_variable_defined?(instance_methods[name])
-            instance_variable_get(instance_methods[name])
+          if instance_variable_defined?(getter_methods_lookup[name])
+            instance_variable_get(getter_methods_lookup[name])
           else
-            coerced = Types.coerce(type, @attributes[name.to_sym], options)
-            instance_variable_set(instance_methods[name], coerced)
+            coerced = Types.coerce(type, @attributes[name], options)
+            instance_variable_set(getter_methods_lookup[name], coerced)
           end
         end
       end
 
       def attr_setter(name)
-        define_method(setter_methods[name]) do |value|
+        define_method(setter_methods_lookup[name]) do |value|
           @attributes[name] = value
         end
       end

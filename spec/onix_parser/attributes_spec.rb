@@ -51,7 +51,8 @@ RSpec.describe OnixParser::Attributes do
     it "returns a hash of attribues" do
       user = User.new(name: "test", numbers: [1, 2, 3])
 
-      expect(user.attributes).to eq({ name: "test", numbers: ["1", "2", "3"] })
+      expect(user.attributes).to eq({ name: "test", numbers: [1, 2, 3] })
+      expect(user.numbers).to eq(["1", "2", "3"])
     end
   end
 
@@ -60,7 +61,8 @@ RSpec.describe OnixParser::Attributes do
       hash = { name: "test", numbers: [1, 2, 3] }
       user = User.new(hash)
 
-      expect(user.attributes).to eq({ name: "test", numbers: ["1", "2", "3"] })
+      expect(user.attributes).to eq({ name: "test", numbers: [1, 2, 3] })
+      expect(user.numbers).to eq(["1", "2", "3"])
     end
 
     it "ignores the undefined attributes" do

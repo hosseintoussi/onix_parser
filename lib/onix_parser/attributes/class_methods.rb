@@ -15,24 +15,29 @@ module OnixParser
 
       def attribute(name, type, options = {})
         options[:default] ||= [] if type == Types::Collection
-
         defined_attributes[name] = options.delete(:default)
+
         instance_methods[name] = "@#{name}"
-
-        attr_setter(name, type, options)
-        attr_getter(name)
-      end
-
-      def attr_getter(name)
-        attr_reader(name)
-      end
-
-      def attr_setter(name, type, options)
         setter_methods[name] = "#{name}="
+
+        attr_setter(name)
+        attr_getter(name, type, options)
+      end
+
+      def attr_getter(name, type, options)
+        define_method(name) do
+          if instance_variable_defined?(instance_methods[name])
+            instance_variable_get(instance_methods[name])
+          else
+            coerced = Types.coerce(type, @attributes[name.to_sym], options)
+            instance_variable_set(instance_methods[name], coerced)
+          end
+        end
+      end
+
+      def attr_setter(name)
         define_method(setter_methods[name]) do |value|
-          coerced_value = Types.coerce(type, value, options.dup)
-          instance_variable_set(instance_methods[name], coerced_value)
-          @attributes[name] = coerced_value
+          @attributes[name] = value
         end
       end
     end

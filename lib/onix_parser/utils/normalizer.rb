@@ -10,7 +10,7 @@ module OnixParser
       def normalize(hash)
         normalized_hash = {}
         hash.map do |k, v|
-          normalized_key = underscore_lookup[k]
+          normalized_key = normalized_key_lookup[k]
           normalized_hash[normalized_key] = v.kind_of?(Hash) ? normalize(v) : v
           if v.kind_of?(Array)
             normalized_hash[normalized_key] = v.collect do |obj|
@@ -24,8 +24,8 @@ module OnixParser
 
       private
 
-      def underscore_lookup
-        @underscore_lookup ||= Hash.new do |hash, key|
+      def normalized_key_lookup
+        @normalized_key_lookup ||= Hash.new do |hash, key|
           word = key_lookup(key).to_s
           word.gsub!(/([A-Z\d]+)([A-Z][a-z])/, '\1_\2')
           word.gsub!(/([a-z\d])([A-Z])/, '\1_\2')
